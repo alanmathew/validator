@@ -1,0 +1,115 @@
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #e9eee9;
+  background: #101512;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --surface: #171d19;
+  --surface-raised: #1c231f;
+  --line: #2a332d;
+  --muted: #8c9990;
+  --green: #b7f36b;
+  --green-dark: #27391e;
+  --red: #ff827c;
+  --yellow: #f3c96c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 50% -18%, rgba(119, 164, 84, .105), transparent 49%),
+    #101512;
+}
+
+button, select { font: inherit; }
+button { cursor: pointer; }
+
+.app-shell { width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
+.topbar { height: 60px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(146, 162, 149, .13); }
+.brand { display: inline-flex; gap: 10px; align-items: center; color: #eef3ee; text-decoration: none; font: 800 17px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: -.7px; }
+.brand-mark { display: grid; width: 27px; height: 27px; place-items: center; border-radius: 8px; background: var(--green); color: #172011; font: 800 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.brand-light { color: #91a096; font-weight: 500; }
+.privacy-note { color: #a0aca3; font-size: 12px; }
+.privacy-dot { display: inline-block; width: 7px; height: 7px; margin: 0 7px 1px 0; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px #b7f36b80; }
+
+main { padding-top: 38px; }
+.intro { margin: 0 auto 26px; text-align: center; }
+.eyebrow { color: var(--green); font: 500 10px "DM Mono", monospace; letter-spacing: 2px; }
+.eyebrow-line { display: inline-block; width: 19px; height: 1px; margin: 0 8px 3px 0; background: var(--green); }
+h1 { margin: 11px 0 9px; font: 700 clamp(36px, 4.7vw, 50px)/1.07 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: -2.4px; }
+h1 span { color: var(--green); }
+.intro p { max-width: 580px; margin: 0 auto; color: #a5b0a8; font-size: 14px; line-height: 1.7; }
+
+.workspace { overflow: hidden; border: 1px solid #2a332d; border-radius: 12px; background: #151a17; box-shadow: 0 24px 80px #00000029; }
+.toolbar { min-height: 66px; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; gap: 16px; border-bottom: 1px solid var(--line); background: #191f1b; }
+.workspace-grid { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(330px, 1fr); align-items: stretch; }
+.editor-panel { min-width: 0; }
+.target-controls, .file-controls { display: flex; align-items: center; gap: 9px; }
+.control-label { margin-right: 3px; color: #829087; font: 500 9px "DM Mono", monospace; letter-spacing: 1.3px; }
+select { height: 34px; padding: 0 30px 0 11px; border: 1px solid #344038; border-radius: 6px; outline: none; background: #202721; color: #e1e9e2; font-size: 12px; }
+select:focus { border-color: #83b74b; }
+.button { height: 35px; padding: 0 12px; display: inline-flex; align-items: center; gap: 7px; border: 1px solid transparent; border-radius: 6px; font-size: 11px; font-weight: 600; transition: background .15s, border-color .15s; }
+.button-quiet { border-color: #354038; background: #202721; color: #c4cec6; }
+.button-quiet:hover:not(:disabled) { background: #29312b; }
+.button-primary { background: var(--green); color: #172011; }
+.button-primary:hover { background: #c6ff7c; }
+.button:disabled { cursor: not-allowed; opacity: .43; }
+
+.editor-heading { height: 40px; padding: 0 17px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #242c26; background: #151a17; }
+.file-tab { height: 40px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--green); color: #d7e0d9; font: 11px "DM Mono", monospace; }
+.file-icon { color: var(--green); }
+.file-count { color: #78867d; font: 10px "DM Mono", monospace; }
+.editor-wrap { min-height: 440px; max-height: 680px; display: flex; overflow: auto; background: #111613; }
+.line-numbers { min-width: 48px; padding: 16px 13px 20px 0; color: #556259; text-align: right; white-space: pre; user-select: none; font: 12px/1.72 "DM Mono", monospace; }
+textarea { width: 100%; min-width: 0; min-height: 440px; padding: 16px 18px 20px 0; resize: vertical; border: 0; outline: none; background: transparent; color: #d2dfd5; tab-size: 2; white-space: pre; font: 12px/1.72 "DM Mono", monospace; }
+
+.results { min-width: 0; max-height: 540px; display: flex; flex-direction: column; border-top: 0; border-left: 1px solid var(--line); background: #171d19; }
+.results-header { min-height: 75px; padding: 15px 14px; display: flex; align-items: center; justify-content: space-between; gap: 8px; border-bottom: 1px solid #252e28; }
+.results-header h2 { margin: 0 0 5px; font: 600 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.results-header p { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 5px; color: #89968d; font-size: 10px; }
+.results-content { min-height: 0; padding: 12px; overflow: auto; }
+.empty-state { min-height: 58px; display: flex; align-items: center; justify-content: center; gap: 8px; border: 1px dashed #303a33; border-radius: 7px; color: #77847a; font-size: 11px; }
+.empty-icon { color: var(--green); font-size: 17px; }
+.diagnostic-list { display: grid; gap: 8px; }
+.diagnostic { padding: 11px 10px; display: grid; grid-template-columns: 57px minmax(0, 1fr); gap: 9px; border: 1px solid #2b342e; border-left: 3px solid #69766d; border-radius: 7px; background: #191f1b; }
+.diagnostic:has(.severity-error) { border-left-color: #ff746d; }
+.diagnostic:has(.severity-warning) { border-left-color: #e7b650; }
+.diagnostic:has(.severity-info) { border-left-color: #9ed65b; }
+.severity { align-self: start; padding: 4px 6px; border-radius: 4px; text-align: center; font: 500 9px "DM Mono", monospace; text-transform: uppercase; }
+.severity-error { background: #542b29; color: #ffaaa5; }
+.severity-warning { background: #4a3c20; color: #ffdb82; }
+.severity-info { background: #293d25; color: #c3f28a; }
+.summary-chip { padding: 3px 6px; border-radius: 4px; font: 500 9px "DM Mono", monospace; }
+.summary-error { background: #542b29; color: #ffaaa5; }
+.summary-warning { background: #4a3c20; color: #ffdb82; }
+.summary-target { color: #89968d; }
+.diagnostic-title { margin: 0; color: #e3ebe5; font-size: 11px; font-weight: 600; line-height: 1.5; }
+.diagnostic-detail { margin: 4px 0 0; color: #9ba79e; font-size: 11px; line-height: 1.55; }
+.diagnostic-meta { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 8px; color: #748278; font: 10px "DM Mono", monospace; }
+.diagnostic-meta a { color: #a7d879; text-decoration: none; }
+.diagnostic-meta a:hover { text-decoration: underline; }
+.success-banner { padding: 13px; border: 1px solid #36502b; border-radius: 7px; background: #1c281a; color: #c8efad; font-size: 12px; }
+
+footer { padding: 19px 2px 28px; display: flex; justify-content: space-between; gap: 12px; color: #738078; font-size: 10px; }
+.footer-lock { margin-right: 6px; color: var(--green); font-size: 9px; }
+
+@media (max-width: 680px) {
+  .app-shell { width: min(100% - 28px, 1120px); }
+  main { padding-top: 38px; }
+  .intro { margin-bottom: 25px; }
+  .intro p { max-width: 410px; font-size: 12px; }
+  .toolbar { align-items: stretch; flex-direction: column; }
+  .target-controls { flex-wrap: wrap; }
+  .file-controls { justify-content: flex-end; }
+  .file-controls .button { flex: 1; justify-content: center; }
+  .workspace-grid { grid-template-columns: minmax(0, 1fr); }
+  .editor-wrap { min-height: 320px; max-height: 480px; }
+  textarea { min-height: 320px; }
+  .results { max-height: 430px; border-top: 1px solid var(--line); border-left: 0; }
+  footer { flex-direction: column; }
+  .diagnostic { grid-template-columns: 56px minmax(0, 1fr); gap: 8px; }
+}

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Validate Kubernetes and OpenShift manifests privately in your browser."
+    />
+    <title>Manifest Lens — Offline Kubernetes Validator</title>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Manifest Lens home">
+          <span class="brand-mark" aria-hidden="true">M</span>
+          <span>manifest<span class="brand-light">lens</span></span>
+        </a>
+        <div class="privacy-note"><span class="privacy-dot"></span> Private by design · runs in your browser</div>
+      </header>
+
+      <main>
+        <!-- <section class="intro">
+          <div class="eyebrow"><span class="eyebrow-line"></span> MANIFEST VALIDATION</div>
+          <h1>Catch the issues<br />before <span>the cluster does.</span></h1>
+          <p>Check Kubernetes and OpenShift manifests for schema errors, compatibility, and the deployment details that are easy to miss.</p>
+        </section> -->
+
+        <section class="workspace" aria-label="Manifest validator">
+          <div class="toolbar">
+            <div class="target-controls">
+              <label class="control-label" for="platform">TARGET</label>
+              <select id="platform" aria-label="Cluster type">
+                <option value="kubernetes">Kubernetes</option>
+                <option value="openshift">OpenShift</option>
+              </select>
+              <select id="version" aria-label="Cluster version"></select>
+            </div>
+            <div class="file-controls">
+              <input id="file-input" type="file" accept=".yaml,.yml,.json,application/yaml,application/json,text/plain" multiple hidden />
+              <button id="open-files" class="button button-quiet" type="button"><span aria-hidden="true">↥</span> Open files</button>
+              <button id="validate" class="button button-primary" type="button"><span aria-hidden="true">✓</span> Validate manifests</button>
+            </div>
+          </div>
+
+          <div class="workspace-grid">
+            <section class="editor-panel" aria-label="Manifest editor">
+              <div class="editor-heading">
+                <div class="file-tab"><span class="file-icon" aria-hidden="true">▤</span><span id="active-file">manifest.yaml</span></div>
+                <div id="file-count" class="file-count">1 document · YAML</div>
+              </div>
+              <div class="editor-wrap">
+                <div id="line-numbers" class="line-numbers" aria-hidden="true">1</div>
+                <textarea id="manifest-input" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Manifest YAML or JSON editor"></textarea>
+              </div>
+            </section>
+
+            <aside class="results" aria-live="polite" aria-label="Validation results">
+              <div class="results-header">
+                <div>
+                  <h2>Validation results</h2>
+                  <p id="results-summary">Run a validation to see what your manifests need.</p>
+                </div>
+                <button id="export-report" class="button button-quiet" type="button" disabled><span aria-hidden="true">↓</span> Export</button>
+              </div>
+              <div id="results-content" class="results-content">
+                <div class="empty-state"><span class="empty-icon" aria-hidden="true">⌁</span><span>Your results will appear here.</span></div>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <footer>
+          <span><span class="footer-lock" aria-hidden="true">◆</span> Your manifests never leave this device.</span>
+          <span>Syntax · Schema · Compatibility · Best practices</span>
+        </footer>
+      </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
